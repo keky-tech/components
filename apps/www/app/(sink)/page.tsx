@@ -48,7 +48,7 @@ import ToggleWithText from "@/registry/example/toggle-with-text"
 import TooltipDemo from "@/registry/example/tooltip-demo"
 import { Button } from "@/registry/ui/button"
 import PaginationDemo from "@/registry/example/pagination-demo"
-
+import DragAndDropDemo from "@/registry/example/drag-and-drop-demo";
 export default function KitchenSinkPage() {
   return (
     <div className="container">
@@ -193,7 +193,7 @@ export default function KitchenSinkPage() {
   )
 }
 
-function ComponentWrapper({
+export function ComponentWrapper({
   className,
   children,
 }: React.HTMLAttributes<HTMLDivElement>) {
