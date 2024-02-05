@@ -9,7 +9,8 @@ import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { Toaster as NewYorkToaster } from "@/registry/ui/toaster"
-
+import '@radix-ui/themes/styles.css';
+import {CustomDndProvider} from "@/components/dndProviders";
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -86,11 +87,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
             enableSystem
             disableTransitionOnChange
           >
-            <div className="relative flex min-h-screen flex-col">
-              <SiteHeader />
-              <div className="flex-1">{children}</div>
-              <SiteFooter />
-            </div>
+            <CustomDndProvider>
+              <div className="relative flex min-h-screen flex-col">
+                <SiteHeader />
+                <div className="flex-1">{children}</div>
+                <SiteFooter />
+              </div>
+            </CustomDndProvider>
             <TailwindIndicator />
           </ThemeProvider>
           <NewYorkToaster />
